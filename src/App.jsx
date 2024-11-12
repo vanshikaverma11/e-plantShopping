@@ -11,6 +11,10 @@ function App() {
   const handleGetStartedClick = () => {
     setShowProductList(true);
   };
+  
+  const handleReturnClick = () => {
+    setShowProductList(false);
+  }
 
   return (
     <div className="app-container">
@@ -33,7 +37,7 @@ function App() {
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList />
+        <ProductList toLanding={handleReturnClick}/>
       </div>
     </div>
   );
