@@ -3,8 +3,8 @@ import './ProductList.css';
 import { useDispatch } from 'react-redux';
 import CartItem from './CartItem';
 import {addItem} from CartSlice;
-import { CartSlice } from './CartSlice';
-import AboutUs from './AboutUs';
+// import { CartSlice } from './CartSlice';
+// import AboutUs from './AboutUs';
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
