@@ -3,6 +3,7 @@ import './ProductList.css'
 import CartItem from './CartItem';
 import {addItem} from CartSlice;
 import { CartSlice } from './CartSlice';
+import AboutUs from './AboutUs';
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
@@ -250,11 +251,11 @@ const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowCart(false);
   };
-const handleAddToCart = (plant) => {
-  dispatch(addItem(plant));
+const handleAddToCart = (product) => {
+  dispatch(addItem(product));
   setAddedToCart((prevState) => ({
      ...prevState,
-     [plant.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+     [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
    }));
 };
     return (
