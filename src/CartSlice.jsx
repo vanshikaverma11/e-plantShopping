@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+// Correct path based on folder structure
+import { addItem } from './redux/CartSlice';
+
 
 export const CartSlice = createSlice({
   name: 'cart',
