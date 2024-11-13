@@ -2,13 +2,13 @@ import React, { useState,useEffect } from 'react';
 import './ProductList.css';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
-import {addItem} from CartSlice;
+import {addItem} from './CartSlice';
 
 
-function ProductList() {
+function ProductList({toLanding}) {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [cart, setCart] = useState([]); // State to store the items added to the cart
+    // const [cart, setCart] = useState([]); // State to store the items added to the cart
     const dispatch = useDispatch();
     const cartItems=useSelector(state => state.cart.items);
     console.log(cartItems);
@@ -274,7 +274,9 @@ const handlePlantsClick = (e) => {
         <div>
              <div className="navbar" style={styleObj}>
             <div className="tag">
-               <div style={{cursor:"pointer"}} onClick={Props.toLanding} className="luxury">
+               <div style={{cursor:"pointer"}} 
+               onClick={toLanding} 
+               className="luxury">
                <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                <a style={{textDecoration:'none'}}>
                         <div>
@@ -296,7 +298,7 @@ const handlePlantsClick = (e) => {
             {plantsArray.map((item)=><div className='mainCategoryDiv'> <h1>{item.category}</h1> 
             <div className="product-list">
             {item.plants.map((plant)=>
-                <div className='product-card'>
+                <div className='product-card' key={plantIndex}>
                 <img className='product-image' src={plant.image} alt={plant.name} />
                 <h2>{plant.name}</h2>
                 <p>{plant.description}</p>

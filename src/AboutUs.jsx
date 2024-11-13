@@ -1,7 +1,7 @@
 import React from 'react';
 import './AboutUs.css';
-import { useDispatch } from 'react-redux';
-import { addItem } from './CreateSlice';
+// import { useDispatch } from 'react-redux';
+// import { addItem } from './CreateSlice';
 
 function AboutUs() {
   return (
