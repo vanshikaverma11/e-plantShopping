@@ -5,13 +5,13 @@ import CartItem from './CartItem';
 import {addItem} from './CartSlice';
 
 
-function ProductList({toLanding}) {
+function ProductList({ toLanding }) {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     // const [cart, setCart] = useState([]); // State to store the items added to the cart
     const dispatch = useDispatch();
     const cartItems=useSelector(state => state.cart.items);
-    console.log(cartItems);
+    //console.log(cartItems);
     // setCart(cartItems)
     useEffect(() => {
 
@@ -23,9 +23,9 @@ function ProductList({toLanding}) {
         console.log("clicked");
         dispatch(addItem(item));
     }
-    const totalItems =() => {
-        return cartItems.reduce((acc, item) => acc + item.quantity, 0);
-    }
+    // const totalItems =() => {
+    //     return cartItems.reduce((acc, item) => acc + item.quantity, 0);
+    // }
 
     const plantsArray = [
         {
@@ -298,7 +298,7 @@ const handlePlantsClick = (e) => {
             {plantsArray.map((item)=><div className='mainCategoryDiv'> <h1>{item.category}</h1> 
             <div className="product-list">
             {item.plants.map((plant)=>
-                <div className='product-card' key={plantIndex}>
+                <div className='product-card' key={plant.id}>
                 <img className='product-image' src={plant.image} alt={plant.name} />
                 <h2>{plant.name}</h2>
                 <p>{plant.description}</p>
